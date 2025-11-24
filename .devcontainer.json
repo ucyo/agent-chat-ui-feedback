@@ -1,0 +1,23 @@
+{
+    "name": "Agent Chat UI",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "target": "claude"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.debugpy"
+            ]
+        }
+    },
+    "postStartCommand": "claude --dangerously-skip-permissions",
+    "runArgs": [
+        "--env-file",
+        ".env"
+    ]
+}
