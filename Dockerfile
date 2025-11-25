@@ -14,14 +14,14 @@ FROM build AS claude
 # Install Claude CLI
 RUN npm install -g @anthropic-ai/claude-code
 
-RUN useradd --create-home --shell /bin/bash chat-agent-ui
+RUN useradd --create-home --shell /bin/bash agents
 
-USER chat-agent-ui
+USER agents
 
 # STAGE: development
 FROM claude AS development
 
-WORKDIR /home/chat-agent-ui
+WORKDIR /home/agents
 
 COPY . .
 
