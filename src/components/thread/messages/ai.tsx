@@ -159,11 +159,11 @@ export function AssistantMessage({
           </>
         ) : (
           <>
-            {contentString.length > 0 && (
-              <div className="py-1">
-                <MarkdownText>{contentString}</MarkdownText>
-              </div>
-            )}
+              {contentString.length > 0 && (
+                <div className="bg-muted mr-auto w-fit rounded-3xl px-4 py-2 text-left whitespace-pre-wrap">
+                  <MarkdownText>{contentString}</MarkdownText>
+                </div>
+              )}
 
             {!hideToolCalls && (
               <>
@@ -192,8 +192,8 @@ export function AssistantMessage({
             />
             <div
               className={cn(
-                "mr-auto flex items-center gap-2 transition-opacity",
-                "opacity-0 group-focus-within:opacity-100 group-hover:opacity-100",
+                "mr-auto flex items-center gap-2",
+                // Remove opacity classes so icons are always visible
               )}
             >
               <BranchSwitcher
@@ -207,6 +207,7 @@ export function AssistantMessage({
                 isLoading={isLoading}
                 isAiMessage={true}
                 handleRegenerate={() => handleRegenerate(parentCheckpoint)}
+                message={message}
               />
             </div>
           </>
